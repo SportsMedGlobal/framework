@@ -316,7 +316,7 @@ class Handler {
 	 * @param  \Exception  $e
 	 * @return string
 	 */
-	protected function formatException(\Exception $e)
+	protected function formatException($e)
 	{
 		if ($this->debug)
 		{
