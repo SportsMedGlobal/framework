@@ -5,6 +5,7 @@ use Illuminate\Queue\Jobs\Job;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Carbon\Carbon;
 
 class WorkCommand extends Command {
 
@@ -116,11 +117,11 @@ class WorkCommand extends Command {
 	{
 		if ($failed)
 		{
-			$this->output->writeln('<error>Failed:</error> '.$job->getName());
+			$this->output->writeln('<error>['.Carbon::now()->format('Y-m-d H:i:s').'] Failed:</error> '.$job->getName());
 		}
 		else
 		{
-			$this->output->writeln('<info>Processed:</info> '.$job->getName());
+			$this->output->writeln('<info>['.Carbon::now()->format('Y-m-d H:i:s').'] Processed:</info> '.$job->getName());
 		}
 	}
 
